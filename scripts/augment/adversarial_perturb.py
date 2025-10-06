@@ -5,9 +5,10 @@ from __future__ import annotations
 import argparse
 import json
 import random
+from collections.abc import Iterable, Sequence
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Sequence, Tuple
+from typing import Any, Dict, List, Tuple
 
 import pandas as pd
 import yaml

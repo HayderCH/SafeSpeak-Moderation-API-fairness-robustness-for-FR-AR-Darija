@@ -20,8 +20,9 @@ import argparse
 import csv
 import json
 from collections import Counter
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable, List
+from typing import List
 
 CANONICAL_LABEL_MAP = {
     "hatespeech": "Hate",

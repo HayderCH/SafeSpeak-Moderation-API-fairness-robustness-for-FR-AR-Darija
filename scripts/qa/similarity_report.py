@@ -14,12 +14,12 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
+from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Iterable
 
 import pandas as pd
-from difflib import SequenceMatcher
 
 
 def parse_args() -> argparse.Namespace:

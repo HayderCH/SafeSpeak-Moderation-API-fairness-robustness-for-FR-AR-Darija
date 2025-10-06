@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import random
-from typing import Callable, Dict, Iterable, List, Tuple
+from collections.abc import Iterable
+from typing import Callable, Dict, List, Tuple
 
 from unidecode import unidecode
 

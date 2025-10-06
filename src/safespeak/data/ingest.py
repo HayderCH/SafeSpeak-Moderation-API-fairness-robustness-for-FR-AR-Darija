@@ -48,7 +48,7 @@ class IngestConfig:
     save_format: str = "csv"
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "IngestConfig":
+    def from_dict(cls, data: Dict[str, Any]) -> IngestConfig:
         sanitize_cfg = data.get("sanitize", {})
         sanitize = SanitizeOptions(**sanitize_cfg)
         static_columns = data.get("static_columns", {})

@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
-from typing import Dict, Iterable, List
+from typing import Dict, List
 
 import numpy as np
 from sklearn import metrics

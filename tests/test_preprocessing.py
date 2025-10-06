@@ -1,4 +1,4 @@
-from safespeak.preprocessing.normalize import normalize_text, batch_normalize
+from safespeak.preprocessing.normalize import batch_normalize, normalize_text
 
 
 def test_normalize_text_basic():

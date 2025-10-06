@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import importlib
 import os
-from typing import Dict, Iterable, List, Optional, Tuple
+from collections.abc import Iterable
+from typing import Dict, List, Optional, Tuple
 
 os.environ.setdefault("TRANSFORMERS_NO_TORCHVISION", "1")
 
@@ -85,16 +86,8 @@ class Translator:
 
         import_utils_mod = importlib.import_module("transformers.utils.import_utils")
         if getattr(import_utils_mod, "_torchvision_available", False):
-            setattr(
-                import_utils_mod,
-                "_torchvision_available",
-                False,
-            )  # type: ignore[attr-defined]
-            setattr(
-                import_utils_mod,
-                "_torchvision_version",
-                "0",
-            )  # type: ignore[attr-defined]
+            import_utils_mod._torchvision_available = False  # type: ignore[attr-defined]
+            import_utils_mod._torchvision_version = "0"  # type: ignore[attr-defined]
 
         try:
             transformers_mod = importlib.import_module("transformers")
