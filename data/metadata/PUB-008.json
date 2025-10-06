@@ -1,0 +1,14 @@
+{
+  "dataset_id": "PUB-008",
+  "title": "Jigsaw Toxic Comment Classification Challenge (English processed)",
+  "source_url": "https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge",
+  "license": "Kaggle Terms of Service",
+  "collection_date": "2025-10-05",
+  "language_distribution": {
+    "en": 159571
+  },
+  "slice_notes": "Binary toxic label derived via OR across toxic/severe_toxic/obscene/threat/insult/identity_hate columns. Original multi-label indicators retained as passthrough columns for slice analysis.",
+  "pii_risk": "High",
+  "contact": "Data Engineering",
+  "processing_notes": "Ingested via data/configs/jigsaw_en.yaml. Positive toxic columns aggregated to canonical labels (Toxic vs Neutral). Translation to FR pending; partial GPU run aborted due to estimated 15h runtime."
+}

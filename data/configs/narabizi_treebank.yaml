@@ -1,0 +1,14 @@
+# Ingestion config for NArabizi Treebank (LAW 2023)
+input_path: data/interim/narabizi_treebank_raw.csv
+output_path: data/processed/narabizi_treebank.csv
+format: csv
+save_format: csv
+text_column: text
+label_column: offensive
+language: ar
+split_column: split
+default_split: train
+passthrough_columns: []
+label_mapping:
+  "1": Toxic
+  "0": Neutral

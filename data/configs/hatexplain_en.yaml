@@ -1,0 +1,19 @@
+# Ingestion config for HateXplain English canonical CSV (pre-translation)
+input_path: data/interim/hatexplain/hatexplain_en.csv
+output_path: data/processed/hatexplain_en.csv
+format: csv
+text_column: text
+label_column: label
+language_column: language
+split_column: split
+label_mapping:
+  Hate: Hate (targeted)
+  Toxic: Toxic
+  Neutral: Neutral
+static_columns:
+  source: hatexplain_en
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv

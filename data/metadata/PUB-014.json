@@ -1,0 +1,19 @@
+{
+  "dataset_id": "PUB-014",
+  "title": "HateCheck French Test Cases",
+  "source_url": "https://github.com/mozafari/HateCheck",
+  "license": "CC BY 4.0",
+  "collection_date": "2021",
+  "language_distribution": {
+    "fr": 3718
+  },
+  "label_distribution": {
+    "Toxic": 2600,
+    "Neutral": 1118
+  },
+  "slice_notes": "HateCheck test suite for French hate speech detection. Contains systematic test cases covering different functionalities and targets. Used for evaluation purposes.",
+  "pii_risk": "Low - Contains synthetic test cases, no real user data",
+  "contact": "Evaluation Lead",
+  "total_samples": 3718,
+  "processing_notes": "Canonicalized with label mapping: hateful->Toxic, non-hateful->Neutral. Marked as test split for evaluation use."
+}

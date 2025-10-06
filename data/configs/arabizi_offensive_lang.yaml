@@ -1,0 +1,17 @@
+# Ingestion config for Arabizi Offensive Language dataset (Raïdy 2023)
+input_path: data/raw/public/Arabizi-Off_Lang_Dataset.csv
+output_path: data/processed/arabizi_offensive_lang.csv
+format: csv
+save_format: csv
+text_column: Text
+label_column: "Generic Class"
+language: ar
+split_column: null
+default_split: train
+passthrough_columns:
+  - "Original class"
+  - "Source"
+  - "Dialect"
+label_mapping:
+  offensive: Toxic
+  "non-offensive": Neutral

@@ -1,0 +1,15 @@
+# Ingestion config for T-HSAB (Tunisian Hate Speech)
+input_path: data/interim/t_hsab_fixed.csv
+output_path: data/processed/t_hsab_tunisian.csv
+format: csv
+save_format: csv
+text_column: text
+label_column: label
+language: ar
+split_column: null
+default_split: train
+passthrough_columns: []
+label_mapping:
+  hate: Toxic
+  abusive: Toxic
+  normal: Neutral

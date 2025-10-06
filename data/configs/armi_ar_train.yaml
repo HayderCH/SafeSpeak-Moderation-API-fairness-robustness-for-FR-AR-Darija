@@ -1,0 +1,19 @@
+# Ingestion config for ArMI 2021 misogyny training set (Arabic)
+input_path: data/raw/public/ArMI-2021/ArMI2021_training.tsv
+output_path: data/processed/armi_ar_train.csv
+format: tsv
+text_column: text
+label_column: misogyny
+language: ar
+split_column: null
+default_split: train
+label_mapping:
+  misogyny: Hate (targeted)
+  none: Neutral
+static_columns:
+  source: armi_2021_train
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv

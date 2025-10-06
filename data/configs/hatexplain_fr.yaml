@@ -1,0 +1,20 @@
+# Ingestion config for HateXplain translated to French
+input_path: data/interim/hatexplain/hatexplain_fr.csv
+output_path: data/processed/hatexplain_fr.csv
+format: csv
+text_column: text
+label_column: label
+language_column: language
+split_column: split
+label_mapping:
+  Hate (targeted): Hate (targeted)
+  Hate: Hate (targeted)
+  Toxic: Toxic
+  Neutral: Neutral
+static_columns:
+  source: hatexplain_fr
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv

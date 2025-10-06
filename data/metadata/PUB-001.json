@@ -1,0 +1,15 @@
+{
+  "dataset_id": "PUB-001",
+  "title": "HateXplain (English source with French translation)",
+  "source_url": "https://github.com/punyajoy/HateXplain",
+  "license": "CC BY 4.0",
+  "collection_date": "2025-10-04",
+  "language_distribution": {
+    "en": 20148,
+    "fr": 20148
+  },
+  "slice_notes": "Annotator majority vote resolved; targets column lists protected groups mentioned.",
+  "pii_risk": "Medium",
+  "contact": "Data Team",
+  "processing_notes": "Raw download from HateXplain repository. Converted to canonical CSV via scripts/extract_hatexplain.py. EN canonical set ingested 2025-10-04; FR translation generated via scripts/translate_dataset.py (GPU, batch=12) and ingested 2025-10-05. AR translation pending."
+}

@@ -1,0 +1,24 @@
+{
+  "dataset_id": "PUB-015",
+  "title": "NArabizi Treebank (LAW 2023)",
+  "source_url": "https://github.com/riabi/narabizi-law2023",
+  "license": "CC BY-SA 4.0",
+  "collection_date": "2023",
+  "language_distribution": {
+    "ar": 1287
+  },
+  "label_distribution": {
+    "Neutral": 1008,
+    "Toxic": 279
+  },
+  "split_distribution": {
+    "train": 1003,
+    "test": 145,
+    "validation": 139
+  },
+  "slice_notes": "Universal Dependencies treebank for NArabizi (Algerian Arabizi/code-switched Arabic-French). Contains offensive language annotations. Sourced from newspaper forums and song lyrics.",
+  "pii_risk": "Low - Contains user-generated content but anonymized",
+  "contact": "NLP Research",
+  "total_samples": 1287,
+  "processing_notes": "Parsed from CoNLL-U format with offensive classifications. Label mapping: 1->Toxic, 0->Neutral. Preserved train/dev/test splits."
+}

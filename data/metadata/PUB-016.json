@@ -1,0 +1,19 @@
+{
+  "dataset_id": "PUB-016",
+  "title": "T-HSAB (Tunisian Hate Speech)",
+  "source_url": "https://sites.google.com/view/thsab",
+  "license": "Research (needs review)",
+  "collection_date": "Unknown",
+  "language_distribution": {
+    "ar": 5968
+  },
+  "label_distribution": {
+    "Neutral": 3784,
+    "Toxic": 2184
+  },
+  "slice_notes": "Tunisian Arabic hate speech dataset with three classes: normal, abusive, hate. Abusive and hate mapped to Toxic.",
+  "pii_risk": "Low - Contains user-generated text but no personal identifiers",
+  "contact": "Data Lead",
+  "total_samples": 5968,
+  "processing_notes": "Canonicalized with label mapping: hate/abusive->Toxic, normal->Neutral. Some rows filtered during processing."
+}

@@ -1,0 +1,98 @@
+# Canonical slice taxonomy for SafeSpeak fairness analysis
+# Last updated: 2025-10-04
+
+languages:
+  - id: fr
+    description: French text (primarily France, Belgium, Canada)
+  - id: ar
+    description: Modern Standard Arabic text
+  - id: darija
+    description: Maghrebi Darija (Morocco, Algeria, Tunisia)
+  - id: fr-ar-code-switch
+    description: Mixed French and Arabic content
+  - id: ar-latin
+    description: Arabizi / Arabic written in Latin script
+  - id: other
+    description: Other relevant languages (specify in metadata)
+
+dialects:
+  - id: msa
+    description: Modern Standard Arabic
+  - id: maghrebi
+    description: Maghrebi dialects (Darija variants)
+  - id: levantine
+    description: Levantine Arabic
+  - id: gulf
+    description: Gulf Arabic
+  - id: other
+    description: Other dialects (specify)
+
+scripts:
+  - id: latin
+    description: Latin alphabet
+  - id: arabic
+    description: Arabic script
+  - id: mixed
+    description: Contains both Latin and Arabic characters
+  - id: other
+    description: Other scripts; detail in metadata
+
+protected_attributes:
+  gender:
+    - female
+    - male
+    - nonbinary
+    - transgender
+  religion:
+    - islam
+    - christianity
+    - judaism
+    - atheism
+    - other
+  ethnicity:
+    - amazigh
+    - arab
+    - black
+    - white
+    - asian
+    - other
+  nationality:
+    - moroccan
+    - algerian
+    - tunisian
+    - french
+    - sub-saharan
+    - european
+    - other
+  immigration:
+    - immigrant
+    - refugee
+    - undocumented
+    - other
+  lgbtq:
+    - gay
+    - lesbian
+    - bisexual
+    - queer
+    - transgender
+    - other
+  disability:
+    - physical
+    - mental
+    - neurodivergent
+    - other
+
+sensitivity_levels:
+  - minor
+  - public_figure
+  - general
+
+context_tags:
+  - sarcasm
+  - quoted
+  - song_lyrics
+  - news
+  - humor
+  - political
+  - sports
+  - other

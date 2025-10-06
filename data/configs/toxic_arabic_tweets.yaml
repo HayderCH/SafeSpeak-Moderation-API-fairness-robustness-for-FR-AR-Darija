@@ -1,0 +1,15 @@
+# Ingestion config for Toxic Arabic Tweets Classification
+input_path: data/raw/public/toxic arabic tweets classification.txt
+output_path: data/processed/toxic_arabic_tweets.csv
+format: tsv
+save_format: csv
+text_column: Tweet
+label_column: Class
+language: ar
+split_column: null
+default_split: train
+passthrough_columns: []
+label_mapping:
+  hate: Toxic
+  abusive: Toxic
+  normal: Neutral

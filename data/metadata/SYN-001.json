@@ -1,0 +1,13 @@
+{
+  "dataset_id": "SYN-001",
+  "title": "SafeSpeak Back-translation (FR via EN)",
+  "source_url": "internal",
+  "license": "Internal",
+  "collection_date": "2025-10-05",
+  "language_distribution": {
+    "fr": 17798
+  },
+  "slice_notes": "Generated via fr->en->fr round-trip on HateXplain FR using MarianMT (drop-identical applied)",
+  "pii_risk": "low",
+  "contact": "ml-lead@safespeak"
+}

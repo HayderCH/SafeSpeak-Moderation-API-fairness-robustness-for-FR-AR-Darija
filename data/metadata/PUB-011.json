@@ -1,0 +1,19 @@
+{
+  "dataset_id": "PUB-011",
+  "title": "Arabizi Offensive Language Dataset (Raïdy 2023)",
+  "source_url": "https://github.com/LaB-Karim/Offensive-Language-Detection-Arabizi",
+  "license": "Research (needs review)",
+  "collection_date": "2023",
+  "language_distribution": {
+    "ar": 7335
+  },
+  "label_distribution": {
+    "Neutral": 5842,
+    "Toxic": 1493
+  },
+  "slice_notes": "Arabizi (Latin-script Arabic) offensive language detection dataset from Lebanon. Contains generic offensive/non-offensive labels with more specific categories in 'Original class' column.",
+  "pii_risk": "Low - Contains user-generated text but no personal identifiers",
+  "contact": "Data Lead",
+  "total_samples": 7335,
+  "processing_notes": "Canonicalized with label mapping: offensive->Toxic, non-offensive->Neutral"
+}

@@ -1,0 +1,13 @@
+{
+  "dataset_id": "SYN-002",
+  "title": "SafeSpeak Adversarial Perturbations (FR typo/leetspeak prototype)",
+  "source_url": "internal",
+  "license": "Internal",
+  "collection_date": "2025-10-05",
+  "language_distribution": {
+    "fr": 4000
+  },
+  "slice_notes": "Generated with scripts/augment/adversarial_perturb.py using configs/perturb/fr_typo_leet.yaml (typo, leetspeak, spacing, emoji recipes; workflow_tag=syn-002-v0; train/eval split 80/20)",
+  "pii_risk": "low",
+  "contact": "ml-lead@safespeak"
+}

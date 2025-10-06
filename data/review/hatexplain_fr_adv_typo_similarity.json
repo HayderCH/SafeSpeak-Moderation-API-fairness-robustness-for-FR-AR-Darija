@@ -1,0 +1,15 @@
+{
+  "count": 3200,
+  "mean_char": 0.41349931882669827,
+  "median_char": 0.32941176470588235,
+  "min_char": 0.005291005291005291,
+  "p10_char": 0.17805175038051752,
+  "p25_char": 0.24320002305076932,
+  "p75_char": 0.46331128565522944,
+  "max_char": 0.9967213114754099,
+  "mean_jaccard": 0.09055916693364527,
+  "below_threshold": 2587,
+  "input": "data\\processed\\synthetic\\adversarial\\fr\\hatexplain_fr_adv_typo.csv",
+  "threshold": 0.65,
+  "flagged_rows": 2587
+}

@@ -1,0 +1,32 @@
+# Ingestion config for Jigsaw Toxic Comment Classification Challenge (English)
+input_path: data/raw/public/jigsaw-toxic-comment-classification-challenge/train.csv
+output_path: data/processed/jigsaw_en.csv
+format: csv
+text_column: comment_text
+label_column: toxic # placeholder when no positive_label_columns used
+language: en
+split_column: null
+default_split: train
+positive_label_columns:
+  - toxic
+  - severe_toxic
+  - obscene
+  - threat
+  - insult
+  - identity_hate
+positive_label_value: Toxic
+negative_label_value: Neutral
+passthrough_columns:
+  - toxic
+  - severe_toxic
+  - obscene
+  - threat
+  - insult
+  - identity_hate
+static_columns:
+  source: jigsaw_en
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv

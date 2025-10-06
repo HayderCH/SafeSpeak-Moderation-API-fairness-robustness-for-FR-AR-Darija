@@ -1,0 +1,13 @@
+{
+  "dataset_id": "PUB-009",
+  "title": "AlgD Toxicity Speech (Algerian Arabic)",
+  "source_url": "https://github.com/aharrasi/AlgD_Toxicity_Speech_Dataset",
+  "license": "Research (needs review)",
+  "collection_date": "2025-10-05",
+  "language_distribution": {
+    "ar": 14150
+  },
+  "slice_notes": "Ingested from AlgD_Toxicity_Speech_Dataset.xlsx with Toxic/Neutral mapping (any hate/offensive/cyberbullying flag = Toxic).",
+  "pii_risk": "medium",
+  "contact": "data-lead@safespeak"
+}

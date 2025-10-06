@@ -1,0 +1,22 @@
+# Example ingestion configuration for SafeSpeak datasets
+input_path: data/samples/raw_sample.csv
+output_path: data/processed/sample_toxicity.csv
+format: csv
+text_column: body
+label_column: label_raw
+language_column: lang
+split_column: split
+default_split: train
+label_mapping:
+  toxic: Toxic
+  neutral: Neutral
+  hate: Hate (targeted)
+  threat: Threat
+static_columns:
+  source: sample_raw
+  country: mixed
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv

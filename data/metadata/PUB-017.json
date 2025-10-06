@@ -1,0 +1,19 @@
+{
+  "dataset_id": "PUB-017",
+  "title": "Toxic Arabic Tweets Classification",
+  "source_url": "https://github.com/ahmadateya/toxic-arabic-tweets",
+  "license": "Research (needs review)",
+  "collection_date": "Unknown",
+  "language_distribution": {
+    "ar": 5758
+  },
+  "label_distribution": {
+    "Neutral": 3578,
+    "Toxic": 2180
+  },
+  "slice_notes": "Arabic tweets classification dataset with three classes: normal, abusive, hate. Abusive and hate mapped to Toxic.",
+  "pii_risk": "Low - Contains tweets but anonymized",
+  "contact": "Data Lead",
+  "total_samples": 5758,
+  "processing_notes": "Canonicalized with label mapping: hate/abusive->Toxic, normal->Neutral. Some rows filtered during processing."
+}

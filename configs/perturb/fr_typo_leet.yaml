@@ -1,0 +1,40 @@
+# SYN-002 prototype configuration for French adversarial perturbations
+input_sources:
+  - path: data/processed/hatexplain_fr.csv
+    source_dataset: hatexplain_fr
+    max_rows: 1000
+  - path: data/processed/synthetic/back_translation/hatexplain_fr_bt_full.csv
+    source_dataset: hatexplain_fr_bt
+    max_rows: 1000
+output_path: data/processed/synthetic/adversarial/fr/hatexplain_fr_adv_typo.csv
+text_column: text
+language_column: language
+label_column: label
+language_filter: ["fr"]
+max_variants_per_input: 2
+max_attempts_per_input: 6
+eval_split_ratio: 0.2
+workflow_tag: syn-002-v0
+recipes:
+  - name: typo
+    probability: 0.7
+    params:
+      swap_prob: 0.4
+      delete_prob: 0.15
+      substitute_prob: 0.35
+  - name: leetspeak
+    probability: 0.4
+    params:
+      probability: 0.3
+  - name: spacing
+    probability: 0.3
+    params:
+      drop_space_prob: 0.1
+      duplicate_space_prob: 0.1
+      zero_width_prob: 0.05
+  - name: emoji
+    probability: 0.25
+    params:
+      insertion_prob: 0.15
+      append_prob: 0.2
+seed: 1337

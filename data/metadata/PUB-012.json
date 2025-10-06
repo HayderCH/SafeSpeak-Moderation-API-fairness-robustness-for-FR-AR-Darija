@@ -1,0 +1,19 @@
+{
+  "dataset_id": "PUB-012",
+  "title": "Base de donnée Hate Speech (AR)",
+  "source_url": "https://github.com/aymene69/Arabic-Hate-Speech",
+  "license": "Unknown (verify)",
+  "collection_date": "Unknown",
+  "language_distribution": {
+    "ar": 38544
+  },
+  "label_distribution": {
+    "Toxic": 28867,
+    "Neutral": 9677
+  },
+  "slice_notes": "Arabic hate speech dataset with numeric scoring (-2: very negative, -1: negative, 0: neutral). Mapped negative scores to Toxic, neutral to Neutral.",
+  "pii_risk": "Low - Contains user-generated text but no personal identifiers",
+  "contact": "Data Lead",
+  "total_samples": 38544,
+  "processing_notes": "Canonicalized with label mapping: -2/-1->Toxic, 0->Neutral. Some rows filtered during processing."
+}

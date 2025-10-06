@@ -1,0 +1,17 @@
+# Ingestion config for HateCheck French test cases
+input_path: data/raw/public/hatecheck_cases_final_french.csv
+output_path: data/processed/hatecheck_french.csv
+format: csv
+save_format: csv
+text_column: test_case
+label_column: label_gold
+language: fr
+split_column: null
+default_split: test
+passthrough_columns:
+  - functionality
+  - target_ident
+  - case_templ
+label_mapping:
+  hateful: Toxic
+  "non-hateful": Neutral

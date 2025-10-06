@@ -1,0 +1,14 @@
+{
+  "dataset_id": "PUB-004",
+  "title": "ArMI 2021 Offensive Language Corpus",
+  "source_url": "https://github.com/ArMI/ArMI",
+  "license": "Research use (non-commercial)",
+  "collection_date": "2025-10-05",
+  "language_distribution": {
+    "ar": 7866
+  },
+  "slice_notes": "Arabic dialect coverage includes Gulf, Levantine, Egyptian, and North African variants. Labels from ArMI task1 mapped to Neutral vs Hate (targeted).",
+  "pii_risk": "High",
+  "contact": "Data Team",
+  "processing_notes": "Training split ingested from ArMI2021_training.tsv via data/configs/armi_ar_train.yaml. Label mapping: misogyny -> Hate (targeted), none -> Neutral. Gold/dev and test splits pending ingestion."
+}

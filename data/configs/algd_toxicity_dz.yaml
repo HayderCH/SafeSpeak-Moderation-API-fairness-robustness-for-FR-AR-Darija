@@ -1,0 +1,28 @@
+# Ingestion config for AlgD Toxicity Speech dataset (Algerian Arabic)
+input_path: data/raw/public/AlgD_Toxicity_Speech_Dataset.xlsx
+output_path: data/processed/algd_toxicity_dz.csv
+format: xlsx
+text_column: comment
+positive_label_columns:
+  - "Hate speech"
+  - " Offensive Language  الكلام الـمسيئ"
+  - "cyberbullying التنمر الإلكتروني"
+positive_label_value: Toxic
+negative_label_value: Neutral
+language: ar
+split_column: null
+default_split: train
+passthrough_columns:
+  - Topic
+  - Source
+label_mapping:
+  Toxic: Toxic
+  Neutral: Neutral
+static_columns:
+  source: algd_toxicity_dz
+  dataset_id: PUB-009
+sanitize:
+  drop_duplicates: true
+  drop_empty_text: true
+  strip_text: true
+save_format: csv
