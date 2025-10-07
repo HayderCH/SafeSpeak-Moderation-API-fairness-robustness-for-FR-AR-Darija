@@ -1,0 +1,5 @@
+outs:
+- md5: 3a6124d57a83ea71167b5be459ffbe13
+  size: 4896342
+  hash: md5
+  path: bert_finetuning_detailed.json

@@ -1,0 +1,5 @@
+outs:
+- md5: 9d5b965e286c63c254917b3a8bd6bbe3
+  size: 285
+  hash: md5
+  path: bert_finetuning_summary.txt

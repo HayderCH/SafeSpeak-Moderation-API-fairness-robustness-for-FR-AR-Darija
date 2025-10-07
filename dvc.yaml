@@ -1,0 +1,34 @@
+stages:
+  integrate_hatecheck:
+    cmd: python scripts/integrate_french_hatecheck.py
+    outs:
+      - data/final/train_corrected_french_enhanced.csv
+
+  translate_jigsaw:
+    cmd: python scripts/translate_jigsaw_to_french.py
+    deps:
+      - data/final/train_corrected_french_enhanced.csv
+    outs:
+      - data/final/train_corrected_french_enhanced_jigsaw.csv
+
+  back_translate:
+    cmd: python scripts/back_translate_french.py
+    deps:
+      - data/final/train_corrected_french_enhanced_jigsaw.csv
+    outs:
+      - data/final/train_corrected_french_max_augmentation.csv
+
+  integrate_final:
+    cmd: python scripts/integrate_max_french_augmentation.py
+    deps:
+      - data/final/train_corrected_french_max_augmentation.csv
+    outs:
+      - data/final/train_corrected_french_max_augmentation.csv
+
+  train:
+    cmd: python scripts/bert_finetuning.py --output-dir results/bert_max_french_augmentation
+    deps:
+      - data/final/train_corrected_french_max_augmentation.csv
+    outs:
+      - results/bert_max_french_augmentation/bert_finetuning_detailed.json
+      - results/bert_max_french_augmentation/bert_finetuning_summary.txt

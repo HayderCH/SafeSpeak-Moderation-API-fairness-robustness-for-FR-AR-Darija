@@ -1,0 +1,5 @@
+outs:
+- md5: 84dc21e4a0f1e805285242559d45ce5e
+  size: 27790383
+  hash: md5
+  path: train_corrected_french_max_augmentation.csv
