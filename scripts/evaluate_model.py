@@ -23,9 +23,7 @@ class ModelPredictor:
         self.tokenizer = None
         self.model = None
         self.label_mapping = None
-        self.device = torch.device(
-            "cuda" if torch.cuda.is_available() else "cpu"
-        )
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.load_model()
 
     def load_model(self) -> None:
@@ -36,7 +34,9 @@ class ModelPredictor:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
         # Load model
-        self.model = AutoModelForSequenceClassification.from_pretrained(str(self.model_path))
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            str(self.model_path)
+        )
         self.model.to(self.device)
         self.model.eval()
 
@@ -49,19 +49,23 @@ class ModelPredictor:
             # Fallback: assume binary classification
             self.label_mapping = {
                 "label2id": {"0": 0, "1": 1},
-                "id2label": {"0": "0", "1": "1"}
+                "id2label": {"0": "0", "1": "1"},
             }
 
-    def predict_batch(self, texts: list[str], batch_size: int = 32) -> tuple[list[str], list[float]]:
+    def predict_batch(
+        self, texts: list[str], batch_size: int = 32
+    ) -> tuple[list[str], list[float]]:
         """Predict labels and probabilities for a batch of texts."""
         predictions = []
         probabilities = []
 
         for i in range(0, len(texts), batch_size):
-            batch_texts = texts[i:i + batch_size]
+            batch_texts = texts[i : i + batch_size]
 
             # Preprocess texts
-            processed_texts = [normalize_text(text, transliterate=False) for text in batch_texts]
+            processed_texts = [
+                normalize_text(text, transliterate=False) for text in batch_texts
+            ]
 
             # Tokenize
             inputs = self.tokenizer(
@@ -69,7 +73,7 @@ class ModelPredictor:
                 truncation=True,
                 padding=True,
                 max_length=512,
-                return_tensors="pt"
+                return_tensors="pt",
             )
 
             # Move to device
@@ -97,9 +101,7 @@ class ModelPredictor:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Evaluate trained model on test data"
-    )
+    parser = argparse.ArgumentParser(description="Evaluate trained model on test data")
     parser.add_argument(
         "--model-path",
         type=Path,
@@ -143,7 +145,9 @@ def evaluate_model(args: argparse.Namespace) -> None:
     splits = build_splits(dataset)
 
     if args.split not in splits:
-        raise ValueError(f"Split '{args.split}' not found in dataset. Available: {list(splits.keys())}")
+        raise ValueError(
+            f"Split '{args.split}' not found in dataset. Available: {list(splits.keys())}"
+        )
 
     split_data = splits[args.split]
     texts = split_data["text"].tolist()
@@ -167,7 +171,7 @@ def evaluate_model(args: argparse.Namespace) -> None:
         "predictions": {
             "labels": pred_labels,
             "probabilities": pred_probs,
-        }
+        },
     }
 
     # Save results

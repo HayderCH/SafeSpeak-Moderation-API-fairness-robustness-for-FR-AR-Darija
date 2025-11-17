@@ -1,0 +1,813 @@
+{
+  "analysis_timestamp": "2025-10-06T23:05:05.423899",
+  "total_datasets": 11,
+  "total_samples": 108352,
+  "datasets": {
+    "algd_toxicity_dz": {
+      "samples": 14150,
+      "text_stats": {
+        "dataset": "algd_toxicity_dz",
+        "total_samples": 14150,
+        "text_length_stats": {
+          "mean": 122.43137809187279,
+          "median": 102.0,
+          "min": 37,
+          "max": 379,
+          "std": 63.85074899670249
+        },
+        "word_count_stats": {
+          "mean": 22.21314487632509,
+          "median": 18.0,
+          "min": 1,
+          "max": 72,
+          "std": 11.828620353055168
+        },
+        "normalized_length_stats": {
+          "mean": 125.30770318021202,
+          "median": 105.0,
+          "min": 6,
+          "max": 980,
+          "std": 66.83779757350828
+        },
+        "normalized_word_stats": {
+          "mean": 22.893003533568905,
+          "median": 19.0,
+          "min": 1,
+          "max": 193,
+          "std": 12.268630477997176
+        }
+      },
+      "label_stats": {
+        "total_samples": 14150,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Toxic": 8463,
+          "Neutral": 5687
+        },
+        "label_percentages": {
+          "Toxic": 59.81,
+          "Neutral": 40.19
+        },
+        "most_common_label": "Toxic",
+        "label_balance_score": 0.6719839300484461
+      },
+      "language_stats": {
+        "total_samples": 14150,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 14150
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 14150,
+        "splits": {
+          "train": 14150
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    },
+    "arabizi_offensive_lang": {
+      "samples": 7335,
+      "text_stats": {
+        "dataset": "arabizi_offensive_lang",
+        "total_samples": 7335,
+        "text_length_stats": {
+          "mean": 72.09406952965236,
+          "median": 61.0,
+          "min": 2,
+          "max": 762,
+          "std": 58.11481762699595
+        },
+        "word_count_stats": {
+          "mean": 12.583367416496252,
+          "median": 10.0,
+          "min": 1,
+          "max": 145,
+          "std": 10.30680677986076
+        },
+        "normalized_length_stats": {
+          "mean": 72.81376959781868,
+          "median": 61.0,
+          "min": 2,
+          "max": 762,
+          "std": 58.447629316939484
+        },
+        "normalized_word_stats": {
+          "mean": 13.064212678936606,
+          "median": 11.0,
+          "min": 1,
+          "max": 145,
+          "std": 10.442981523425129
+        }
+      },
+      "label_stats": {
+        "total_samples": 7335,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Neutral": 5842,
+          "Toxic": 1493
+        },
+        "label_percentages": {
+          "Neutral": 79.65,
+          "Toxic": 20.35
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.25556316330023965
+      },
+      "language_stats": {
+        "total_samples": 7335,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 7335
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 7335,
+        "splits": {
+          "train": 7335
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    },
+    "armi_ar_train": {
+      "samples": 7866,
+      "text_stats": {
+        "dataset": "armi_ar_train",
+        "total_samples": 7866,
+        "text_length_stats": {
+          "mean": 72.40744978387998,
+          "median": 64.0,
+          "min": 7,
+          "max": 250,
+          "std": 36.32818048286354
+        },
+        "word_count_stats": {
+          "mean": 12.736969234680906,
+          "median": 11.0,
+          "min": 1,
+          "max": 35,
+          "std": 6.399844933620433
+        },
+        "normalized_length_stats": {
+          "mean": 71.21243325705568,
+          "median": 63.0,
+          "min": 1,
+          "max": 538,
+          "std": 36.36222691758205
+        },
+        "normalized_word_stats": {
+          "mean": 12.936562420544114,
+          "median": 11.0,
+          "min": 1,
+          "max": 107,
+          "std": 6.742582109787578
+        }
+      },
+      "label_stats": {
+        "total_samples": 7866,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Hate (targeted)": 4805,
+          "Neutral": 3061
+        },
+        "label_percentages": {
+          "Hate (targeted)": 61.09,
+          "Neutral": 38.91
+        },
+        "most_common_label": "Hate (targeted)",
+        "label_balance_score": 0.6370447450572321
+      },
+      "language_stats": {
+        "total_samples": 7866,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 7866
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 7866,
+        "splits": {
+          "train": 7866
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    },
+    "base_donnee_hate_speech_ar": {
+      "samples": 38544,
+      "text_stats": {
+        "dataset": "base_donnee_hate_speech_ar",
+        "total_samples": 38544,
+        "text_length_stats": {
+          "mean": 91.75046699875467,
+          "median": 86.0,
+          "min": 3,
+          "max": 277,
+          "std": 51.27291398762356
+        },
+        "word_count_stats": {
+          "mean": 16.49060813615608,
+          "median": 15.0,
+          "min": 1,
+          "max": 52,
+          "std": 9.17931812148636
+        },
+        "normalized_length_stats": {
+          "mean": 90.87157534246575,
+          "median": 85.0,
+          "min": 2,
+          "max": 277,
+          "std": 51.04558838585146
+        },
+        "normalized_word_stats": {
+          "mean": 16.49758717310087,
+          "median": 15.0,
+          "min": 1,
+          "max": 52,
+          "std": 9.181156387811546
+        }
+      },
+      "label_stats": {
+        "total_samples": 38544,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Toxic": 28867,
+          "Neutral": 9677
+        },
+        "label_percentages": {
+          "Toxic": 74.89,
+          "Neutral": 25.11
+        },
+        "most_common_label": "Toxic",
+        "label_balance_score": 0.3352270758998164
+      },
+      "language_stats": {
+        "total_samples": 38544,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 38544
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 38544,
+        "splits": {
+          "train": 38544
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    },
+    "hatecheck_arabic": {
+      "samples": 3570,
+      "text_stats": {
+        "dataset": "hatecheck_arabic",
+        "total_samples": 3570,
+        "text_length_stats": {
+          "mean": 34.16582633053221,
+          "median": 33.0,
+          "min": 6,
+          "max": 86,
+          "std": 12.52212198606906
+        },
+        "word_count_stats": {
+          "mean": 6.400840336134454,
+          "median": 6.0,
+          "min": 1,
+          "max": 17,
+          "std": 2.560306389654899
+        },
+        "normalized_length_stats": {
+          "mean": 33.88991596638655,
+          "median": 32.0,
+          "min": 6,
+          "max": 86,
+          "std": 12.578133809631474
+        },
+        "normalized_word_stats": {
+          "mean": 6.400840336134454,
+          "median": 6.0,
+          "min": 1,
+          "max": 17,
+          "std": 2.559947778211211
+        }
+      },
+      "label_stats": {
+        "total_samples": 3570,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Toxic": 2494,
+          "Neutral": 1076
+        },
+        "label_percentages": {
+          "Toxic": 69.86,
+          "Neutral": 30.14
+        },
+        "most_common_label": "Toxic",
+        "label_balance_score": 0.4314354450681636
+      },
+      "language_stats": {
+        "total_samples": 3570,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 3570
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 3570,
+        "splits": {
+          "test": 3570
+        },
+        "split_percentages": {
+          "test": 100.0
+        }
+      }
+    },
+    "hatecheck_french": {
+      "samples": 3718,
+      "text_stats": {
+        "dataset": "hatecheck_french",
+        "total_samples": 3718,
+        "text_length_stats": {
+          "mean": 55.96261430876815,
+          "median": 51.0,
+          "min": 1,
+          "max": 135,
+          "std": 22.21149474089811
+        },
+        "word_count_stats": {
+          "mean": 9.857988165680473,
+          "median": 9.0,
+          "min": 1,
+          "max": 23,
+          "std": 4.107285263864959
+        },
+        "normalized_length_stats": {
+          "mean": 55.938676707907476,
+          "median": 51.0,
+          "min": 1,
+          "max": 135,
+          "std": 22.22027735508256
+        },
+        "normalized_word_stats": {
+          "mean": 9.857988165680473,
+          "median": 9.0,
+          "min": 1,
+          "max": 23,
+          "std": 4.106732875285518
+        }
+      },
+      "label_stats": {
+        "total_samples": 3718,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Toxic": 2600,
+          "Neutral": 1118
+        },
+        "label_percentages": {
+          "Toxic": 69.93,
+          "Neutral": 30.07
+        },
+        "most_common_label": "Toxic",
+        "label_balance_score": 0.43
+      },
+      "language_stats": {
+        "total_samples": 3718,
+        "unique_languages": 1,
+        "language_distribution": {
+          "fr": 3718
+        },
+        "language_percentages": {
+          "fr": 100.0
+        },
+        "primary_language": "fr"
+      },
+      "split_stats": {
+        "total_samples": 3718,
+        "splits": {
+          "test": 3718
+        },
+        "split_percentages": {
+          "test": 100.0
+        }
+      }
+    },
+    "hatexplain_fr": {
+      "samples": 20148,
+      "text_stats": {
+        "dataset": "hatexplain_fr",
+        "total_samples": 20148,
+        "text_length_stats": {
+          "mean": 149.14026206075044,
+          "median": 126.0,
+          "min": 6,
+          "max": 1784,
+          "std": 101.31267925332095
+        },
+        "word_count_stats": {
+          "mean": 25.948729402422078,
+          "median": 22.0,
+          "min": 1,
+          "max": 510,
+          "std": 25.864661099159857
+        },
+        "normalized_length_stats": {
+          "mean": 148.16299384554299,
+          "median": 125.0,
+          "min": 6,
+          "max": 1784,
+          "std": 99.71532906089523
+        },
+        "normalized_word_stats": {
+          "mean": 25.94907683144729,
+          "median": 22.0,
+          "min": 1,
+          "max": 510,
+          "std": 25.86400935643062
+        }
+      },
+      "label_stats": {
+        "total_samples": 20148,
+        "unique_labels": 3,
+        "label_distribution": {
+          "Neutral": 7814,
+          "Hate (targeted)": 6854,
+          "Toxic": 5480
+        },
+        "label_percentages": {
+          "Neutral": 38.78,
+          "Hate (targeted)": 34.02,
+          "Toxic": 27.2
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.7013053493729204
+      },
+      "language_stats": {
+        "total_samples": 20148,
+        "unique_languages": 1,
+        "language_distribution": {
+          "fr": 20148
+        },
+        "language_percentages": {
+          "fr": 100.0
+        },
+        "primary_language": "fr"
+      },
+      "split_stats": {
+        "total_samples": 20148,
+        "splits": {
+          "train": 15383,
+          "test": 1924,
+          "val": 1922,
+          "unspecified": 919
+        },
+        "split_percentages": {
+          "train": 76.35,
+          "test": 9.55,
+          "val": 9.54,
+          "unspecified": 4.56
+        }
+      }
+    },
+    "narabizi_treebank": {
+      "samples": 1287,
+      "text_stats": {
+        "dataset": "narabizi_treebank",
+        "total_samples": 1287,
+        "text_length_stats": {
+          "mean": 82.2027972027972,
+          "median": 68.0,
+          "min": 8,
+          "max": 481,
+          "std": 60.05570295298647
+        },
+        "word_count_stats": {
+          "mean": 13.916083916083917,
+          "median": 12.0,
+          "min": 1,
+          "max": 84,
+          "std": 10.139268820318454
+        },
+        "normalized_length_stats": {
+          "mean": 81.43356643356644,
+          "median": 67.0,
+          "min": 8,
+          "max": 481,
+          "std": 59.78129051917799
+        },
+        "normalized_word_stats": {
+          "mean": 13.918414918414918,
+          "median": 12.0,
+          "min": 2,
+          "max": 84,
+          "std": 10.135692951810965
+        }
+      },
+      "label_stats": {
+        "total_samples": 1287,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Neutral": 1008,
+          "Toxic": 279
+        },
+        "label_percentages": {
+          "Neutral": 78.32,
+          "Toxic": 21.68
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.2767857142857143
+      },
+      "language_stats": {
+        "total_samples": 1287,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 1287
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 1287,
+        "splits": {
+          "train": 1003,
+          "test": 145,
+          "validation": 139
+        },
+        "split_percentages": {
+          "train": 77.93,
+          "test": 11.27,
+          "validation": 10.8
+        }
+      }
+    },
+    "sample_toxicity": {
+      "samples": 8,
+      "text_stats": {
+        "dataset": "sample_toxicity",
+        "total_samples": 8,
+        "text_length_stats": {
+          "mean": 26.125,
+          "median": 22.5,
+          "min": 18,
+          "max": 46,
+          "std": 9.280355596635292
+        },
+        "word_count_stats": {
+          "mean": 4.875,
+          "median": 4.0,
+          "min": 4,
+          "max": 7,
+          "std": 1.3562026818605375
+        },
+        "normalized_length_stats": {
+          "mean": 26.625,
+          "median": 22.5,
+          "min": 19,
+          "max": 46,
+          "std": 8.305683295190107
+        },
+        "normalized_word_stats": {
+          "mean": 5.0,
+          "median": 4.5,
+          "min": 4,
+          "max": 7,
+          "std": 1.224744871391589
+        }
+      },
+      "label_stats": {
+        "total_samples": 8,
+        "unique_labels": 4,
+        "label_distribution": {
+          "Neutral": 3,
+          "Toxic": 2,
+          "Hate (targeted)": 2,
+          "Threat": 1
+        },
+        "label_percentages": {
+          "Neutral": 37.5,
+          "Toxic": 25.0,
+          "Hate (targeted)": 25.0,
+          "Threat": 12.5
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.3333333333333333
+      },
+      "language_stats": {
+        "total_samples": 8,
+        "unique_languages": 3,
+        "language_distribution": {
+          "fr": 6,
+          "darija": 1,
+          "en": 1
+        },
+        "language_percentages": {
+          "fr": 75.0,
+          "darija": 12.5,
+          "en": 12.5
+        },
+        "primary_language": "fr"
+      },
+      "split_stats": {
+        "total_samples": 8,
+        "splits": {
+          "train": 5,
+          "test": 2,
+          "dev": 1
+        },
+        "split_percentages": {
+          "train": 62.5,
+          "test": 25.0,
+          "dev": 12.5
+        }
+      }
+    },
+    "toxic_arabic_tweets": {
+      "samples": 5758,
+      "text_stats": {
+        "dataset": "toxic_arabic_tweets",
+        "total_samples": 5758,
+        "text_length_stats": {
+          "mean": 63.08492532129212,
+          "median": 57.0,
+          "min": 3,
+          "max": 277,
+          "std": 37.93734600504991
+        },
+        "word_count_stats": {
+          "mean": 12.10767627648489,
+          "median": 11.0,
+          "min": 1,
+          "max": 52,
+          "std": 7.125993839960356
+        },
+        "normalized_length_stats": {
+          "mean": 62.998610628690514,
+          "median": 57.0,
+          "min": 3,
+          "max": 277,
+          "std": 37.94012757568649
+        },
+        "normalized_word_stats": {
+          "mean": 12.12955887460924,
+          "median": 11.0,
+          "min": 1,
+          "max": 52,
+          "std": 7.140472014051755
+        }
+      },
+      "label_stats": {
+        "total_samples": 5758,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Neutral": 3578,
+          "Toxic": 2180
+        },
+        "label_percentages": {
+          "Neutral": 62.14,
+          "Toxic": 37.86
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.6092789267747345
+      },
+      "language_stats": {
+        "total_samples": 5758,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 5758
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 5758,
+        "splits": {
+          "train": 5758
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    },
+    "t_hsab_tunisian": {
+      "samples": 5968,
+      "text_stats": {
+        "dataset": "t_hsab_tunisian",
+        "total_samples": 5968,
+        "text_length_stats": {
+          "mean": 68.92241957104558,
+          "median": 40.0,
+          "min": 2,
+          "max": 2515,
+          "std": 95.27558141335054
+        },
+        "word_count_stats": {
+          "mean": 11.58210455764075,
+          "median": 7.0,
+          "min": 1,
+          "max": 388,
+          "std": 15.281876238603864
+        },
+        "normalized_length_stats": {
+          "mean": 68.21380697050938,
+          "median": 40.0,
+          "min": 2,
+          "max": 2515,
+          "std": 95.05641155509805
+        },
+        "normalized_word_stats": {
+          "mean": 11.58210455764075,
+          "median": 7.0,
+          "min": 1,
+          "max": 388,
+          "std": 15.280595866917263
+        }
+      },
+      "label_stats": {
+        "total_samples": 5968,
+        "unique_labels": 2,
+        "label_distribution": {
+          "Neutral": 3784,
+          "Toxic": 2184
+        },
+        "label_percentages": {
+          "Neutral": 63.4,
+          "Toxic": 36.6
+        },
+        "most_common_label": "Neutral",
+        "label_balance_score": 0.5771670190274841
+      },
+      "language_stats": {
+        "total_samples": 5968,
+        "unique_languages": 1,
+        "language_distribution": {
+          "ar": 5968
+        },
+        "language_percentages": {
+          "ar": 100.0
+        },
+        "primary_language": "ar"
+      },
+      "split_stats": {
+        "total_samples": 5968,
+        "splits": {
+          "train": 5968
+        },
+        "split_percentages": {
+          "train": 100.0
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_samples": 108352,
+    "unique_labels": 4,
+    "unique_languages": 4,
+    "label_distribution": {
+      "Neutral": 42648,
+      "Toxic": 54042,
+      "Hate (targeted)": 11661,
+      "Threat": 1
+    },
+    "language_distribution": {
+      "ar": 84478,
+      "fr": 23872,
+      "darija": 1,
+      "en": 1
+    },
+    "text_length_stats": {
+      "mean": 97.66959539279385,
+      "median": 81.0,
+      "min": 1,
+      "max": 2515
+    }
+  }
+}

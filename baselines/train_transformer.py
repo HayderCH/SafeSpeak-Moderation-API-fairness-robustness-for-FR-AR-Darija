@@ -81,7 +81,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-name",
         type=str,
-        default="microsoft/DialoGPT-medium",
+        default="xlm-roberta-base",
         help="HuggingFace model name or path",
     )
     parser.add_argument(

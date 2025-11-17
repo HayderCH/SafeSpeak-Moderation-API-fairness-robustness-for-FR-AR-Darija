@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeSpeak - Multilingual Toxicity Detection</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .input-section {
+        margin-bottom: 30px;
+      }
+
+      .input-section h2 {
+        color: #4a5568;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 16px;
+        resize: vertical;
+        transition: border-color 0.3s ease;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+      }
+
+      .btn-secondary {
+        background: #e2e8f0;
+        color: #4a5568;
+      }
+
+      .btn-secondary:hover {
+        background: #cbd5e0;
+      }
+
+      .results-section {
+        display: none;
+      }
+
+      .results-section.show {
+        display: block;
+      }
+
+      .result-card {
+        border-left: 4px solid #667eea;
+        background: #f7fafc;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 8px;
+      }
+
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .prediction-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .prediction-safe {
+        background: #c6f6d5;
+        color: #22543d;
+      }
+
+      .prediction-toxic {
+        background: #fed7d7;
+        color: #742a2a;
+      }
+
+      .confidence-bar {
+        width: 100%;
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+
+      .confidence-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.5s ease;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .metric {
+        text-align: center;
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .metric-label {
+        font-size: 12px;
+        color: #718096;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .metric-value {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2d3748;
+      }
+
+      .loading {
+        display: none;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .loading.show {
+        display: block;
+      }
+
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 15px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .error-message {
+        background: #fed7d7;
+        color: #742a2a;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid #e53e3e;
+        display: none;
+      }
+
+      .error-message.show {
+        display: block;
+      }
+
+      .language-info {
+        font-size: 14px;
+        color: #718096;
+        margin-top: 10px;
+      }
+
+      .examples {
+        background: #f7fafc;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .examples h3 {
+        color: #4a5568;
+        margin-bottom: 15px;
+      }
+
+      .example-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .example-btn {
+        background: #edf2f7;
+        color: #4a5568;
+        border: 1px solid #e2e8f0;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .example-btn:hover {
+        background: #e2e8f0;
+      }
+
+      .footer {
+        text-align: center;
+        color: white;
+        opacity: 0.8;
+        margin-top: 40px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🛡️ SafeSpeak</h1>
+        <p>Multilingual Toxicity Detection & Content Moderation</p>
+      </div>
+
+      <div class="card">
+        <div class="input-section">
+          <h2>🔍 Analyze Text</h2>
+          <textarea
+            id="textInput"
+            placeholder="Enter text to analyze for toxicity... (supports multiple languages including English, French, Arabic, Spanish, German, and more)"
+          ></textarea>
+
+          <div class="button-group">
+            <button class="btn-primary" onclick="analyzeText()">
+              Analyze Text
+            </button>
+            <button class="btn-secondary" onclick="clearResults()">
+              Clear
+            </button>
+          </div>
+
+          <div class="examples">
+            <h3>💡 Try these examples:</h3>
+            <div class="example-buttons">
+              <button
+                class="example-btn"
+                onclick="loadExample('This is a wonderful day!')"
+              >
+                Safe Message
+              </button>
+              <button
+                class="example-btn"
+                onclick="loadExample('You are an idiot and should disappear!')"
+              >
+                Toxic Message
+              </button>
+              <button
+                class="example-btn"
+                onclick="loadExample('Ceci est un message très positif et encourageant.')"
+              >
+                French Safe
+              </button>
+              <button
+                class="example-btn"
+                onclick="loadExample('Tu es stupide et je te déteste et tous dois mourrir espece de merde!')"
+              >
+                French Toxic
+              </button>
+              <button
+                class="example-btn"
+                onclick="loadExample('هذا رسالة إيجابية جدا')"
+              >
+                Arabic Safe
+              </button>
+              <button
+                class="example-btn"
+                onclick="loadExample('أنت غبي ولديك شخصية سيئة')"
+              >
+                Arabic Toxic
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Analyzing text...</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results-section" id="resultsSection">
+          <h2>📊 Analysis Results</h2>
+
+          <div class="result-card" id="resultCard">
+            <div class="result-header">
+              <h3>Prediction Result</h3>
+              <span class="prediction-badge" id="predictionBadge">SAFE</span>
+            </div>
+
+            <div class="confidence-section">
+              <div class="confidence-bar">
+                <div class="confidence-fill" id="confidenceFill"></div>
+              </div>
+              <p>Confidence: <strong id="confidenceText">0%</strong></p>
+            </div>
+
+            <div class="language-info" id="languageInfo">
+              Detected Language: <strong id="detectedLanguage">Unknown</strong>
+            </div>
+
+            <div class="language-info">
+              Raw Prediction: <strong id="rawPrediction">0</strong> |
+              Probabilities: <span id="probabilities">[0, 0, 0, 0]</span>
+            </div>
+
+            <div class="metrics">
+              <div class="metric">
+                <div class="metric-label">Processing Time</div>
+                <div class="metric-value" id="processingTime">0ms</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Request ID</div>
+                <div class="metric-value" id="requestId">-</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Model Status</div>
+                <div class="metric-value" id="modelStatus">Active</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Powered by XLM-RoBERTa • Built with FastAPI • SafeSpeak v1.0.0</p>
+        <p>© 2024 SafeSpeak - Enterprise Content Moderation Platform</p>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE_URL = "http://127.0.0.1:8000";
+
+      function showLoading() {
+        document.getElementById("loading").classList.add("show");
+        document.getElementById("errorMessage").classList.remove("show");
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").classList.remove("show");
+      }
+
+      function showError(message) {
+        const errorDiv = document.getElementById("errorMessage");
+        errorDiv.textContent = message;
+        errorDiv.classList.add("show");
+      }
+
+      function clearResults() {
+        document.getElementById("resultsSection").classList.remove("show");
+        document.getElementById("textInput").value = "";
+        document.getElementById("errorMessage").classList.remove("show");
+      }
+
+      function loadExample(text) {
+        document.getElementById("textInput").value = text;
+      }
+
+      async function analyzeText() {
+        const text = document.getElementById("textInput").value.trim();
+
+        if (!text) {
+          showError("Please enter some text to analyze.");
+          return;
+        }
+
+        showLoading();
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/predict`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ text: text }),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            displayResults(result);
+          } else {
+            showError(result.error || "Analysis failed. Please try again.");
+          }
+        } catch (error) {
+          console.error("API Error:", error);
+          showError(
+            "Failed to connect to the SafeSpeak API. Please ensure the server is running."
+          );
+        } finally {
+          hideLoading();
+        }
+      }
+
+      function displayResults(result) {
+        const resultsSection = document.getElementById("resultsSection");
+        const predictionBadge = document.getElementById("predictionBadge");
+        const confidenceFill = document.getElementById("confidenceFill");
+        const confidenceText = document.getElementById("confidenceText");
+        const detectedLanguage = document.getElementById("detectedLanguage");
+        const processingTime = document.getElementById("processingTime");
+        const requestId = document.getElementById("requestId");
+
+        // Model has 4 classes: 0=Hate(targeted), 1=Neutral, 2=Threat, 3=Toxic
+        const prediction = result.prediction;
+        const isToxic = prediction !== 1; // Only class 1 (Neutral) is safe
+        const confidence = (result.confidence * 100).toFixed(1);
+
+        // Update prediction badge with correct label mapping
+        let badgeText, badgeClass;
+        if (prediction === 0) {
+          badgeText = "HATE SPEECH";
+          badgeClass = "prediction-toxic";
+        } else if (prediction === 1) {
+          badgeText = "NEUTRAL";
+          badgeClass = "prediction-safe";
+        } else if (prediction === 2) {
+          badgeText = "THREAT";
+          badgeClass = "prediction-toxic";
+        } else if (prediction === 3) {
+          badgeText = "TOXIC";
+          badgeClass = "prediction-toxic";
+        } else {
+          badgeText = "UNKNOWN";
+          badgeClass = "prediction-toxic";
+        }
+
+        predictionBadge.textContent = badgeText;
+        predictionBadge.className = `prediction-badge ${badgeClass}`;
+
+        // Update confidence
+        confidenceFill.style.width = `${confidence}%`;
+        confidenceText.textContent = `${confidence}%`;
+
+        // Update language (if available)
+        detectedLanguage.textContent = result.language || "Unknown";
+
+        // Update debug info
+        document.getElementById("rawPrediction").textContent = prediction;
+        document.getElementById("probabilities").textContent = JSON.stringify(
+          result.probabilities || []
+        );
+
+        // Update metrics
+        processingTime.textContent = `${(result.processing_time * 1000).toFixed(
+          0
+        )}ms`;
+        requestId.textContent = result.request_id.split("_")[1]; // Extract number part
+
+        // Show results
+        resultsSection.classList.add("show");
+      }
+
+      // Auto-resize textarea
+      document
+        .getElementById("textInput")
+        .addEventListener("input", function () {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        });
+
+      // Keyboard shortcuts
+      document.addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+          analyzeText();
+        }
+      });
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("SafeSpeak Interface Loaded");
+        console.log("API Endpoint:", API_BASE_URL);
+      });
+    </script>
+  </body>
+</html>

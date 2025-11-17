@@ -186,3 +186,18 @@ tmp/
 temp/
 *.tmp
 *.temp
+
+# ML-specific files and directories
+.coverage
+.ruff_cache/
+.dvc/
+mlartifacts/
+mlruns/
+results/
+build/
+
+# Additional data and model files
+*.npy
+*.npz
+*.tfrecord
+*.tfrecords
